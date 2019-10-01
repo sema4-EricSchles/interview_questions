@@ -14,13 +14,14 @@ def index():
     }
     center = 3
     spread = 5
+    timestamp_one = dateparser.parse(
+        str(datetime.now()), settings=settings
+    )
     return json.dumps({
         "A": np.random.normal(loc=center, scale=spread),
         "B": np.random.normal(loc=center, scale=spread),
         "C": np.random.normal(loc=center, scale=spread),
-        "timestamp_one": dateparser.parse(
-            str(datetime.now()), settings=settings
-        ),
+        "timestamp_one": str(timestamp_one),
         "timestamp_two": str(datetime.utcnow())
     })
 
